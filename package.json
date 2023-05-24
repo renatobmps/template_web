@@ -1,0 +1,12 @@
+{
+  "name": "temaple",
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": "v18.15.0"
+  },
+  "license": "MIT",
+  "author": "Renato <renatobmpsilva@gmail.com>"
+}
