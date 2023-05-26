@@ -15,5 +15,10 @@
     "node": "v18.15.0"
   },
   "license": "MIT",
-  "author": "Renato <renatobmpsilva@gmail.com>"
+  "author": "Renato <renatobmpsilva@gmail.com>",
+  "devDependencies": {
+    "@types/node": "20.2.4",
+    "@types/react": "18.2.7",
+    "typescript": "^5.0.4"
+  }
 }
