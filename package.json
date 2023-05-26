@@ -1,8 +1,12 @@
 {
   "name": "temaple",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "build": "next build",
+    "export": "npm run build && next export",
+    "start": "npm run build && NODE_ENV=production next start -p 80",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^13.4.3"
