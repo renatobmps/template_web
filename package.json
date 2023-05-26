@@ -1,9 +1,12 @@
 {
   "name": "temaple",
   "version": "1.0.0",
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {},
+  "scripts": {
+    "dev": "next dev"
+  },
+  "dependencies": {
+    "next": "^13.4.3"
+  },
   "engines": {
     "node": "v18.15.0"
   },
