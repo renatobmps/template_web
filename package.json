@@ -1,14 +1,16 @@
 {
   "name": "temaple",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "export": "npm run build && next export",
+    "format": "prettier --write \"src/**/*.tsx\"",
     "start": "npm run build && NODE_ENV=production next start -p 80",
     "lint": "next lint",
     "prepare": "husky install",
-    "test": "echo missing script"
+    "test": "echo \"Error: no test specified\"",
+    "test:coverage": "echo \"Something like: vitest run --coverage\""
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.7",
