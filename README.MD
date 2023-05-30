@@ -9,13 +9,7 @@ You can use this template using the command:
 npx degit renatobmps/template_web new_project_name
 ```
 
-Below, you'll find all the details you require about the technologies utilized in this project:
-
-### List of technologies used in this project
-
-- node v18.15.0
-- npm 9.5.0
-- next@13.4.3
+Below, you'll find some details about some technologies utilized in this project:
 
 ### Node
 This project was developed with the Node.js v18.15.0 version.
