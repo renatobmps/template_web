@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: [
     'airbnb',
+    'eslint:recommended',
     'next',
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
@@ -20,8 +21,7 @@ module.exports = {
     'standard',
     'standard-with-typescript',
   ],
-  'overrides': [
-  ],
+  overrides: [],
   ignorePatterns: ['.eslintrc.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -31,29 +31,38 @@ module.exports = {
     ecmaVersion: 'latest',
     project: 'tsconfig.json',
     sourceType: 'module',
-    tsconfigRootDir : __dirname,
+    tsconfigRootDir: __dirname,
   },
   plugins: [
     '@typescript-eslint',
     '@typescript-eslint/eslint-plugin',
     'jsx-a11y',
     'react',
+    '@typescript-eslint'
   ],
   root: true,
   rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/semi': 0,
-    '@typescript-eslint/space-before-function-paren': 0,
+    '@typescript-eslint/comma-dangle': ['off', 'always'],
+    "@typescript-eslint/indent": ["off"],
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      multiline: {
+        delimiter: 'semi',
+        requireLast: true,
+      },
+      singleline: {
+        delimiter: 'semi',
+        requireLast: false,
+      },
+    }],
+    '@typescript-eslint/semi': ['error', 'always'],
+    '@typescript-eslint/space-before-function-paren': ['off'],
+    'class-methods-use-this': ['warn'],
     'import/extensions': [
       2,
       {
         'tsx': 'never'
       }
     ],
-    'import/no-anonymous-default-export': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -66,7 +75,7 @@ module.exports = {
         'caseSensitiveStrict': true
       }
     ],
-    'import/prefer-default-export': 'off',
+    indent: ['error', 2],
     'jsx-a11y/alt-text': [
       'warn',
       {
@@ -74,18 +83,15 @@ module.exports = {
         img: ['Image'],
       },
     ],
-    'jsx-a11y/aria-props': 'warn',
-    'jsx-a11y/aria-proptypes': 'warn',
-    'jsx-a11y/aria-unsupported-elements': 'warn',
-    'jsx-a11y/role-has-required-aria-props': 'warn',
-    'jsx-a11y/role-supports-aria-props': 'warn',
-    'no-console': 'error',
-    'no-duplicate-imports': 'error',
-    'no-nonoctal-decimal-escape': 'off',
-    'no-param-reassign': 'off',
-    'no-unused-expressions': 'off',
-    'no-unsafe-optional-chaining': 'off',
-    'no-useless-constructor': 'off',
+    'jsx-a11y/aria-props': ['warn'],
+    'jsx-a11y/aria-proptypes': ['warn'],
+    'jsx-a11y/aria-unsupported-elements': ['warn'],
+    'jsx-a11y/role-has-required-aria-props': ['warn'],
+    'jsx-a11y/role-supports-aria-props': ['warn'],
+    'linebreak-style': ['error', 'unix'],
+    'no-console': ['error'],
+    'no-duplicate-imports': ['error'],
+    'no-param-reassign': ['error'],
     'prettier/prettier': [
       'error',
       {
@@ -98,20 +104,14 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    quotes: ['error', 'single'],
     'react/jsx-filename-extension': [
       1,
       {
         extensions: ['.js', '.jsx', '.tsx'],
       },
     ],
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-uses-react': 0,
-    'react/no-unescaped-entities': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/require-default-props': 'off',
-    'react/prop-types': 'off',
-    'semi': 0,
-    'space-before-function-paren': 0,
+    'react/react-in-jsx-scope': ['off'],
   },
   settings: {
     react: {
