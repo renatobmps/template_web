@@ -44,9 +44,8 @@ export default function Page(): JSX.Element {
         keepalive: true,
         window: null,
       });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      // eslint-disable-next-line no-alert, @typescript-eslint/strict-boolean-expressions
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       alert(error.message || 'Unexpected error');
     } finally {
       currentTarget.querySelector('button')?.removeAttribute('disabled');

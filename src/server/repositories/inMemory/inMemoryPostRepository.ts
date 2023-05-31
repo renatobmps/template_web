@@ -28,12 +28,16 @@ export default class InMemoryPostRepository implements PostRepository {
   }
 
   async readAll(): Promise<Array<{ id: string; title: string; link: string }>> {
-    return this.posts.map((post) => ({
-      ...post,
-      body: undefined,
-      user: undefined,
-      link: `http://localhost:3000/api/post/${post.id}`,
-    }));
+    try {
+      return this.posts.map((post) => ({
+        ...post,
+        body: undefined,
+        user: undefined,
+        link: `${process.env.HOST as string}/api/post/${post.id}`,
+      }));
+    } catch (error) {
+      return [];
+    }
   }
 
   async readOne(id: string): Promise<PostProps | null> {

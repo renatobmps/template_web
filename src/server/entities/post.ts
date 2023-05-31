@@ -8,7 +8,6 @@ export interface PostProps {
 export class Post {
   private readonly props: PostProps;
 
-  // eslint-disable-next-line class-methods-use-this
   private validateBody(body: string): true {
     if (body.length < 5) throw new Error('Body must be at least 5 characters');
 
@@ -24,7 +23,6 @@ export class Post {
     return this.props.body;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private validateID(id: string): true {
     if (id.length < 1) throw new Error('ID must be fielded');
 
@@ -40,7 +38,6 @@ export class Post {
     return this.props.id;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private validateTitle(title: string): true {
     if (title.length < 1) throw new Error('Title must be fielded');
 
@@ -56,7 +53,6 @@ export class Post {
     return this.props.title;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   private validateUser(user: string): true {
     if (user.length < 1) throw new Error('Invalid username');
 

@@ -6,15 +6,23 @@ interface PageProps {
 }
 
 export async function getStaticProps(): Promise<{ props: PageProps }> {
-  const request = await fetch('http://localhost:3000/api/post');
-  const postsObj = await request.json();
-  const { posts } = postsObj;
+  try {
+    const request = await fetch(`${process.env.HOST as string}/api/post`);
+    const postsObj = await request.json();
+    const { posts } = postsObj;
 
-  return {
-    props: {
-      posts,
-    },
-  };
+    return {
+      props: {
+        posts,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        posts: [],
+      },
+    };
+  }
 }
 
 const gridStyle: CSSProperties = {
