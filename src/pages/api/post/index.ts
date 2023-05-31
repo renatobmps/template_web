@@ -26,7 +26,7 @@ const methods: Record<
     const inMemory = new InMemoryPostRepository();
     const listAllPosts = new ListAllPosts(inMemory);
 
-    const posts = await listAllPosts.execute({});
+    const posts = await listAllPosts.execute();
     res.status(200).json({ posts });
   },
 };
