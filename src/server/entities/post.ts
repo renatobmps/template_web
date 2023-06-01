@@ -1,3 +1,5 @@
+import { randomUUID } from 'crypto';
+
 export interface PostProps {
   id: string;
   title: string;
@@ -23,15 +25,10 @@ export class Post {
     return this.props.body;
   }
 
-  private validateID(id: string): true {
-    if (id.length < 1) throw new Error('ID must be fielded');
-
-    return true;
-  }
-
   set id(id: string) {
-    this.validateID(id);
-    this.props.id = id;
+    throw new Error(
+      `ID cannot be changed. Ignoring attempt to set ${id} to ID`,
+    );
   }
 
   get id(): string {
@@ -68,13 +65,15 @@ export class Post {
     return this.props.user;
   }
 
-  constructor(props: PostProps) {
-    const { body, id, title, user } = props;
+  constructor(props: Omit<PostProps, 'id'>) {
+    const { body, title, user } = props;
     this.validateBody(body);
-    this.validateID(id);
     this.validateTitle(title);
     this.validateUser(user);
 
-    this.props = props;
+    this.props = {
+      ...props,
+      id: randomUUID(),
+    };
   }
 }

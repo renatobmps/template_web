@@ -1,21 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import InMemoryPostRepository from 'src/server/repositories/inMemory/inMemoryPostRepository';
+import PostDTO from 'src/server/repositories/prisma/postDTO';
 import CreatePost from 'src/server/services/createPost';
 import ListAllPosts from 'src/server/services/listAllPosts';
+
+const dto = new PostDTO();
 
 const methods: Record<
   string,
   (req: NextApiRequest, res: NextApiResponse) => Promise<any>
 > = {
   POST: async (req: NextApiRequest, res: NextApiResponse) => {
-    const inMemory = new InMemoryPostRepository();
-    const createPost = new CreatePost(inMemory);
+    const createPost = new CreatePost(dto);
 
-    const { body, id, title, user } = req.body;
+    const { body, title, user } = req.body;
 
     const newPost = createPost.execute({
       body,
-      id,
       title,
       user,
     });
@@ -23,8 +23,7 @@ const methods: Record<
     res.status(201).json({ newPost });
   },
   GET: async (req: NextApiRequest, res: NextApiResponse) => {
-    const inMemory = new InMemoryPostRepository();
-    const listAllPosts = new ListAllPosts(inMemory);
+    const listAllPosts = new ListAllPosts(dto);
 
     const posts = await listAllPosts.execute();
     res.status(200).json({ posts });

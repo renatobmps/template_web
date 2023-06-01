@@ -21,8 +21,8 @@ export default class InMemoryPostRepository implements PostRepository {
     this.posts.push(post);
   }
 
-  async findDuplicatedIDs(id: string): Promise<PostProps | null> {
-    const duplicated = this.posts.find((post) => post.id === id);
+  async findDuplicatedTitle(title: string): Promise<PostProps | null> {
+    const duplicated = this.posts.find((post) => post.title === title);
 
     return duplicated ?? null;
   }

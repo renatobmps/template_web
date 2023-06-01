@@ -1,5 +1,6 @@
 # Change log
 
+- 1.3.0 - API using SOLID and Prisma ORM
 - 1.2.1 - fix prettier
 - 1.2.0 - Adding API support with SOLID pattern
 - 1.1.2 - Adding husky and running test and lint scripts

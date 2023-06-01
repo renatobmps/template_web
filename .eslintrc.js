@@ -44,6 +44,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/comma-dangle': ['off', 'always'],
     "@typescript-eslint/indent": ["off"],
+    "@typescript-eslint/method-signature-style": ["off"],
     '@typescript-eslint/member-delimiter-style': ['error', {
       multiline: {
         delimiter: 'semi',

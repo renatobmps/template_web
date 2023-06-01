@@ -61,10 +61,6 @@ export default function Page(): JSX.Element {
         <h2>New post</h2>
         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <form style={formStyle} onSubmit={onSubmit}>
-          <label style={labelStyle} htmlFor="id">
-            <span>Unique ID</span>
-            <input name="id" id="id" />
-          </label>
           <label style={labelStyle} htmlFor="title">
             <span>Title</span>
             <input name="title" id="title" />

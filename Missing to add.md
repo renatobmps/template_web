@@ -3,7 +3,6 @@ Criar app fullstack onde uma **pessoa** pode criar um **cadastro**, fazer **logi
 Missing to add
 
 - API SOLID
-  - prisma,
   - zod,
   - axios?,
   - nodemailer?,
@@ -23,4 +22,5 @@ Missing to add
 - Storybook
 - Next Auth
 - Nookies
+- Create user to login
 - Redux?

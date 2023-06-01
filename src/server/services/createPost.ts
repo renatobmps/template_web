@@ -8,22 +8,20 @@ type CreatePostResponse = Post;
 export default class CreatePost {
   constructor(private readonly postRepository: PostRepository) {}
 
-  private async validateRules(id: string): Promise<void> {
-    const duplicatedPost = await this.postRepository.findDuplicatedIDs(id);
+  private async validateRules(title: string): Promise<void> {
+    const duplicatedPost = await this.postRepository.findDuplicatedTitle(title);
     if (duplicatedPost != null) throw new Error('Post already exists');
   }
 
   async execute({
     body,
-    id,
     title,
     user,
-  }: CreatePostRequest): Promise<CreatePostResponse> {
-    await this.validateRules(id);
+  }: Omit<CreatePostRequest, 'id'>): Promise<CreatePostResponse> {
+    await this.validateRules(title);
 
     const post = new Post({
       body,
-      id,
       title,
       user,
     });
