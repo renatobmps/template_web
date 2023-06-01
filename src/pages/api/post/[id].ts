@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import PostDTO from 'src/server/repositories/prisma/postDTO';
 import ListOnePost from 'src/server/services/listOnePost';
+import { z } from 'zod';
 
 const dto = new PostDTO();
 
@@ -10,7 +11,11 @@ const methods: Record<
 > = {
   GET: async (req: NextApiRequest, res: NextApiResponse) => {
     const listOnePost = new ListOnePost(dto);
-    const { id } = req.query;
+
+    const queryData = z.object({
+      id: z.string().min(1),
+    });
+    const { id } = queryData.parse(req.query);
 
     if (typeof id !== 'string') return res.status(400).end();
 

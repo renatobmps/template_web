@@ -27,7 +27,7 @@ export default function Page(): JSX.Element {
     const { currentTarget } = event;
     currentTarget.querySelector('button')?.setAttribute('disabled', 'true');
     try {
-      await fetch('/api/post', {
+      const response = await fetch('/api/post', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,6 +44,14 @@ export default function Page(): JSX.Element {
         keepalive: true,
         window: null,
       });
+
+      if (response.status !== 201) {
+        const stringifyText = await response.text();
+        const errorMessage = JSON.parse(stringifyText).message;
+        throw new Error(errorMessage);
+      }
+
+      alert('Created :)');
     } catch (error: any) {
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       alert(error.message || 'Unexpected error');
