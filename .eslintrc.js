@@ -95,13 +95,13 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
+        arrowParens: 'always',
+        endOfLine: 'auto',
         printWidth: 80,
         tabWidth: 2,
-        singleQuote: true,
         trailingComma: 'all',
-        arrowParens: 'always',
         semi: true,
-        endOfLine: 'auto',
+        singleQuote: true,
       },
     ],
     quotes: ['error', 'single'],

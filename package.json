@@ -1,11 +1,11 @@
 {
   "name": "template",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "scripts": {
     "dev": "DEBUG=* rm -fr .next ; next dev",
     "build": "rm -fr .next ; next build",
     "export": "npm run build && next export",
-    "format": "prettier --write \"src/**/*.tsx\"",
+    "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.ts\"",
     "start": "npm run build && NODE_ENV=production next start -p 80",
     "lint": "next lint",
     "prepare": "husky install",
@@ -16,11 +16,7 @@
     "node": "v18.15.0"
   },
   "dependencies": {
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "next": "^13.4.3",
-    "prettier": "^2.8.8",
     "react": "^18.2.0"
   },
   "devDependencies": {
@@ -31,11 +27,15 @@
     "eslint": "8.41.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "13.4.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.1.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-primer-react": "^3.0.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
+    "prettier": "^2.8.8",
     "typescript": "^5.0.4"
   },
   "license": "MIT",
