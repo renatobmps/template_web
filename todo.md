@@ -49,7 +49,7 @@ Tag > branch > commit
     - [X] 0.3.9 - Add zod and change API calls
   - [ ] 0.5.0 - Improve general
     - [X] 0.4.1 - Fix versions system
-    - [ ] 0.4.2 - Inform more about the object of this template project to help community
+    - [X] 0.4.2 - Inform more about the object of this template project to help community
     - [ ] 0.4.3 - Add typescript aliases
     - [ ] 0.4.4 - Add vitest and start testing all files
   - [ ] 0.6.0 - Login

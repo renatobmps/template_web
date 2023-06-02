@@ -1,5 +1,6 @@
 # Change log
 
+  - 0.4.2 - A better description for this project was added
   - 0.4.1 - A new way to create versions was implemented. All tasks and versions can be viewed on todo.MD file
 - 0.4.0 - API with SOLID principles was created (feat_starting_api_solid)
   - 0.3.9 - Zod was added to validate request data on API
