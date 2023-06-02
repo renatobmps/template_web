@@ -55,15 +55,33 @@ module.exports = {
         requireLast: false,
       },
     }],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
     '@typescript-eslint/semi': ['error', 'always'],
     '@typescript-eslint/space-before-function-paren': ['off'],
-    'class-methods-use-this': ['warn'],
+    '@typescript-eslint/strict-boolean-expressions': ['off'],
+    'class-methods-use-this': ['off'],
     'import/extensions': [
       2,
       {
         'tsx': 'never'
       }
     ],
+    "import/order":
+      [1, {
+        "groups": [
+          "external",
+          "builtin",
+          "internal",
+          "sibling",
+          "parent",
+          "index"],
+      }
+      ],
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -113,6 +131,7 @@ module.exports = {
       },
     ],
     'react/react-in-jsx-scope': ['off'],
+    "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
   },
   settings: {
     react: {

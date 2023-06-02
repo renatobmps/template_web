@@ -1,16 +1,22 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 import PostDTO from 'src/server/repositories/prisma/postDTO';
 import CreatePost from 'src/server/services/createPost';
 import ListAllPosts from 'src/server/services/listAllPosts';
-import { z } from 'zod';
 
 const dto = new PostDTO();
 
 const methods: Record<
   string,
-  (req: NextApiRequest, res: NextApiResponse) => Promise<any>
+  (req: NextApiRequest, res: NextApiResponse) => Promise<void>
 > = {
-  POST: async (req: NextApiRequest, res: NextApiResponse) => {
+  GET: async (req, res) => {
+    const listAllPosts = new ListAllPosts(dto);
+
+    const posts = await listAllPosts.execute();
+    res.status(200).json({ posts });
+  },
+  POST: async (req, res) => {
     const createPost = new CreatePost(dto);
 
     const bodyData = z.object({
@@ -28,30 +34,22 @@ const methods: Record<
 
     res.status(201).json({ newPost });
   },
-  GET: async (req: NextApiRequest, res: NextApiResponse) => {
-    const listAllPosts = new ListAllPosts(dto);
-
-    const posts = await listAllPosts.execute();
-    res.status(200).json({ posts });
-  },
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
-): Promise<NextApiResponse<any> | undefined> {
+): Promise<void> {
   if (req.method != null && req.method in methods) {
     try {
-      return await methods[req.method](req, res);
+      await methods[req.method](req, res);
     } catch (error: any) {
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       res.status(error?.message ? 400 : 500).json({
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         message: error?.message ? error.message : 'Unknown error',
       });
       throw error;
     }
   }
 
-  return res.status(405).end();
+  res.status(405).end();
 }

@@ -65,7 +65,7 @@ export class Post {
     return this.props.user;
   }
 
-  constructor(props: Omit<PostProps, 'id'>) {
+  constructor(props: Omit<PostProps, 'id'>, id?: string) {
     const { body, title, user } = props;
     this.validateBody(body);
     this.validateTitle(title);
@@ -73,7 +73,7 @@ export class Post {
 
     this.props = {
       ...props,
-      id: randomUUID(),
+      id: id ?? randomUUID(),
     };
   }
 }

@@ -53,7 +53,6 @@ export default function Page(): JSX.Element {
 
       alert('Created :)');
     } catch (error: any) {
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       alert(error.message || 'Unexpected error');
     } finally {
       currentTarget.querySelector('button')?.removeAttribute('disabled');
@@ -67,7 +66,6 @@ export default function Page(): JSX.Element {
       <Link href="/post">Ver postagens</Link>
       <article>
         <h2>New post</h2>
-        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
         <form style={formStyle} onSubmit={onSubmit}>
           <label style={labelStyle} htmlFor="title">
             <span>Title</span>

@@ -1,4 +1,4 @@
-import { type GetStaticProps, type GetStaticPaths } from 'next';
+import { type GetStaticPaths, type GetStaticProps } from 'next';
 import { type PostProps } from 'src/server/entities/post';
 
 interface PageProps {
@@ -27,7 +27,6 @@ export const getStaticProps: GetStaticProps = async (
   ctx,
 ): Promise<{ props: PageProps }> => {
   try {
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (!ctx.params?.id) throw new Error('id required');
 
     const { id } = ctx.params;
