@@ -1,22 +1,24 @@
 # Template
 
-The modern web stack is modeled after this project. You may modify and/or redistribute it in compliance with the MIT license because it is free software.
+Are you seeking for a contemporary stack template so you can stop wasting time setting up your projects? Maybe it can assist you, then. This project serves as the blueprint for the current web stack. It is free software, therefore you are free to alter and/or distribute it in accordance with the MIT license.
+
+With the help of this template, you can create a full-stack project that uses Next.js and all the other tools required to create a SOLID API REST with automated tests, front-end documentation, and more.
 
 ## Using this template
 
-You can use this template using the command:
+The following command can be used to use this template::
 
 ```
 npx degit renatobmps/template_web new_project_name
 ```
 
-Below, you'll find some details about some technologies utilized in this project:
+You can read more about some of the technologies used in this project below:
 
 ### Node
-This project was developed with the Node.js v18.15.0 version.
+The Node.js version used to create this project was 18.15.0.
 
 ### Next.js
-This is a project is running with Next.js 13.4.3. With Next.js, you can run the project locally with ```npm run dev```.
+Next.js 13.4.3 is being used in this project. With Next.js, you can run the project locally with ```npm run dev``` command.
 
 ### EsLint and prettier
 Eslint is a tool to enforce coding pattern and prettier is a tool to enforce code style. This tools will create a code pattern.
