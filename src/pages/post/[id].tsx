@@ -1,7 +1,7 @@
 // eslint-disable-next-line prettier/prettier
-import { type GetStaticPaths, type GetStaticProps } from 'next';
 // eslint-disable-next-line prettier/prettier
 import { type PostProps } from '@serverEntities/post';
+import { type GetStaticPaths, type GetStaticProps } from 'next';
 
 interface PageProps {
   data: PostProps;

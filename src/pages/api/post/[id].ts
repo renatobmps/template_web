@@ -1,9 +1,9 @@
 // eslint-disable-next-line prettier/prettier
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { z } from 'zod';
 import PostDTO from '@serverRepositories/prisma/postDTO';
 // eslint-disable-next-line prettier/prettier
 import ListOnePost from '@serverUseCases/listOnePost';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 
 const dto = new PostDTO();
 
