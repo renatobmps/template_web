@@ -79,7 +79,8 @@ module.exports = {
           "internal",
           "sibling",
           "parent",
-          "index"],
+          "index"
+        ],
       }
       ],
     'import/no-extraneous-dependencies': [
@@ -111,18 +112,7 @@ module.exports = {
     'no-console': ['error'],
     'no-duplicate-imports': ['error'],
     'no-param-reassign': ['error'],
-    'prettier/prettier': [
-      'error',
-      {
-        arrowParens: 'always',
-        endOfLine: 'auto',
-        printWidth: 80,
-        tabWidth: 2,
-        trailingComma: 'all',
-        semi: true,
-        singleQuote: true,
-      },
-    ],
+    'prettier/prettier': ['error'],
     quotes: ['error', 'single'],
     'react/jsx-filename-extension': [
       1,

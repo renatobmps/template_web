@@ -1,5 +1,7 @@
+// eslint-disable-next-line prettier/prettier
+// eslint-disable-next-line prettier/prettier
+import { type PostProps } from '@serverEntities/post';
 import { type CSSProperties } from 'react';
-import { type PostProps } from 'src/server/entities/post';
 
 interface PageProps {
   posts: PostProps[];

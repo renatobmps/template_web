@@ -1,5 +1,5 @@
-import { Post, type PostProps } from '../entities/post';
-import type PostRepository from '../repositories/postRepository';
+import { Post, type PostProps } from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 interface CreatePostRequest extends PostProps {}
 

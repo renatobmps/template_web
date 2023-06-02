@@ -1,5 +1,5 @@
-import { type PostProps } from '../entities/post';
-import type PostRepository from '../repositories/postRepository';
+import { type PostProps } from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 interface ListOnePostRequest {
   postId: string;

@@ -1,4 +1,4 @@
-import { type PostProps } from '../entities/post';
+import { type PostProps } from '@serverEntities/post';
 
 export default interface PostRepository {
   create(post: PostProps): Promise<void>;

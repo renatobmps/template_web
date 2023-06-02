@@ -1,6 +1,6 @@
 {
   "name": "template",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "scripts": {
     "dev": "DEBUG=* rm -fr .next ; next dev",
     "build": "rm -fr .next ; next build",

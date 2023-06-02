@@ -50,7 +50,7 @@ Tag > branch > commit
   - [ ] 0.5.0 - Improve general
     - [X] 0.4.1 - Fix versions system
     - [X] 0.4.2 - Inform more about the object of this template project to help community
-    - [ ] 0.4.3 - Add typescript aliases
+    - [X] 0.4.3 - Add typescript aliases
     - [ ] 0.4.4 - Add vitest and start testing all files
   - [ ] 0.6.0 - Login
     - [ ] 0.5.1 - Create User entity

@@ -20,7 +20,17 @@
     "noEmit": true,
     "noEmitOnError": true,
     "noImplicitReturns": true,
-    "paths": {},
+    "paths": {
+      "@serverRepositories/*": [
+        "./src/server/repositories/*"
+      ],
+      "@serverUseCases/*": [
+        "./src/server/services/*"
+      ],
+      "@serverEntities/*": [
+        "./src/server/entities/*"
+      ],
+    },
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,

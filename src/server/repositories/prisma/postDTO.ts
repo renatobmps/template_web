@@ -1,6 +1,6 @@
 import { type Prisma, PrismaClient } from '@prisma/client';
-import { type PostProps } from '../../entities/post';
-import type PostRepository from '../postRepository';
+import { type PostProps } from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 export default class PostDTO implements PostRepository {
   prisma: PrismaClient<

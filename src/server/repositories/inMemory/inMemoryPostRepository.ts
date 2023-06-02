@@ -1,5 +1,5 @@
-import { type PostProps } from '../../entities/post';
-import type PostRepository from '../postRepository';
+import { type PostProps } from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 export default class InMemoryPostRepository implements PostRepository {
   private readonly posts: PostProps[] = [

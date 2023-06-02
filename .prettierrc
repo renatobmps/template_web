@@ -1,9 +1,14 @@
 {
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "semi": true,
   "singleQuote": true,
   "trailingComma": "all",
   "importOrder": [
     "^src/(.*)$",
     "^[./]"
   ],
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "printWidth": 80,
+  "tabWidth": 2
 }
