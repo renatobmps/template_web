@@ -21,14 +21,14 @@
     "noEmitOnError": true,
     "noImplicitReturns": true,
     "paths": {
+      "@serverEntities/*": [
+        "./src/server/entities/*"
+      ],
       "@serverRepositories/*": [
         "./src/server/repositories/*"
       ],
       "@serverUseCases/*": [
         "./src/server/services/*"
-      ],
-      "@serverEntities/*": [
-        "./src/server/entities/*"
       ],
     },
     "removeComments": true,

@@ -1,14 +1,20 @@
 {
   "arrowParens": "always",
   "endOfLine": "auto",
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "all",
   "importOrder": [
-    "^src/(.*)$",
+    "^node:",
+    "^@",
     "^[./]"
   ],
+  "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
+  "organizeImportsSkipDestructiveCodeActions": true,
+  "plugins": [
+    "prettier-plugin-sorted"
+  ],
   "printWidth": 80,
-  "tabWidth": 2
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all"
 }

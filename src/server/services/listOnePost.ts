@@ -5,7 +5,7 @@ interface ListOnePostRequest {
   postId: string;
 }
 
-type ListOnePostResponse = PostProps;
+export type ListOnePostResponse = PostProps;
 
 export default class ListOnePost {
   constructor(private readonly postRepository: PostRepository) {}

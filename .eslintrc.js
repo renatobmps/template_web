@@ -38,7 +38,6 @@ module.exports = {
     '@typescript-eslint/eslint-plugin',
     'jsx-a11y',
     'react',
-    '@typescript-eslint'
   ],
   root: true,
   rules: {
@@ -71,18 +70,7 @@ module.exports = {
         'tsx': 'never'
       }
     ],
-    "import/order":
-      [1, {
-        "groups": [
-          "external",
-          "builtin",
-          "internal",
-          "sibling",
-          "parent",
-          "index"
-        ],
-      }
-      ],
+    "import/order": ["warn"],
     'import/no-extraneous-dependencies': [
       'error',
       {
