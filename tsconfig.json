@@ -21,15 +21,10 @@
     "noEmitOnError": true,
     "noImplicitReturns": true,
     "paths": {
-      "@serverEntities/*": [
-        "./src/server/entities/*"
-      ],
-      "@serverRepositories/*": [
-        "./src/server/repositories/*"
-      ],
-      "@serverUseCases/*": [
-        "./src/server/services/*"
-      ],
+      "@errors/*": ["./src/errors/*"],
+      "@serverEntities/*": ["./src/server/entities/*"],
+      "@serverProviders/*": ["./src/server/providers/*"],
+      "@serverUseCases/*": ["./src/server/services/*"],
     },
     "removeComments": true,
     "resolveJsonModule": true,

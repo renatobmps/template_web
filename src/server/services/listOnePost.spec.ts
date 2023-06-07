@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import InMemoryPostRepository from '@serverRepositories/inMemory/inMemoryPostRepository';
+import InMemoryPostRepository from '@serverProviders/implementations/postRepositoryIM';
 
 import CreatePost from './createPost';
 import ListOnePost from './listOnePost';
@@ -8,6 +8,10 @@ import ListOnePost from './listOnePost';
 describe('ListOnePost.ts', () => {
   const dto = new InMemoryPostRepository();
   const listOnePost = new ListOnePost(dto);
+
+  it('should be defined', () => {
+    expect(ListOnePost).toBeDefined();
+  });
 
   it('not should to bring a post', async () => {
     expect(await listOnePost.execute({ postId: 'test' })).toBe(null);

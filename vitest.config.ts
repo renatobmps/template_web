@@ -7,11 +7,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      '@errors': path.resolve(__dirname, './src/errors'),
       '@serverEntities': path.resolve(__dirname, './src/server/entities'),
-      '@serverRepositories': path.resolve(
-        __dirname,
-        './src/server/repositories',
-      ),
+      '@serverProviders': path.resolve(__dirname, './src/server/providers'),
       '@serverUseCases': path.resolve(__dirname, './src/server/services'),
     },
   },

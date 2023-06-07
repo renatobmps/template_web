@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { type Prisma, PrismaClient } from '@prisma/client';
 import { type PostProps } from '@serverEntities/post';
-import type PostRepository from '@serverRepositories/postRepository';
+import type PostRepository from '@serverProviders/postRepository';
 
-export default class PostDTO implements PostRepository {
+export default class PostRepositoryPrisma implements PostRepository {
   prisma: PrismaClient<
     Prisma.PrismaClientOptions,
     never,

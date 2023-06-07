@@ -46,7 +46,8 @@
     "prisma": "^4.15.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.0.4",
-    "vitest": "^0.31.4"
+    "vitest": "^0.31.4",
+    "vitest-mock-extended": "^1.1.3"
   },
   "license": "MIT",
   "author": "Renato <renatobmpsilva@gmail.com>",
