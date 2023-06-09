@@ -19,17 +19,13 @@ export default class PostRepositoryIM implements PostRepository {
   }
 
   public async readAll(): Promise<PostWithLink[]> {
-    try {
-      return this.posts.map((post: Post) => ({
-        body: undefined,
-        user: undefined,
-        link: `${process.env.HOST as string}/api/post/${post.id}`,
-        id: post.id,
-        title: post.title,
-      }));
-    } catch (error) {
-      return [];
-    }
+    return this.posts.map((post: Post) => ({
+      body: undefined,
+      user: undefined,
+      link: `${process.env.HOST as string}/api/post/${post.id}`,
+      id: post.id,
+      title: post.title,
+    }));
   }
 
   public async readOne(id: string): Promise<Post | null> {
