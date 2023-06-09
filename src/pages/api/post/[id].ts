@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
 
-import PostDTO from '@serverProviders/prisma/postDTO';
+import PostDTO from '@serverProviders/implementations/postRepositoryPrisma';
 import ListOnePost from '@serverUseCases/listOnePost';
 
 const dto = new PostDTO();
