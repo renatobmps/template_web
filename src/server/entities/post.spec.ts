@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
-
-import { Post } from './post';
+import Post from './post';
 
 describe('Post', () => {
   const validPostData = {

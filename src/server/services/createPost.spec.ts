@@ -1,8 +1,6 @@
 import { describe, expect, it } from 'vitest';
-
-import type GeneralError from '@errors/GeneralError';
 import InMemoryPostRepository from '@serverProviders/implementations/postRepositoryIM';
-
+import type GeneralError from '@errors/GeneralError';
 import CreatePost from './createPost';
 
 describe('CreatePost', () => {

@@ -1,70 +1,44 @@
 import { type GetStaticPaths, type GetStaticProps } from 'next';
+import PostDTO from '@serverProviders/implementations/postRepositoryPrisma';
+import ListAllPosts from '@serverUseCases/listAllPosts';
+import ListOnePost from '@serverUseCases/listOnePost';
+import Post, { type PostPageProps } from '@UIPages/Post';
 
-import { type PostProps } from '@serverEntities/post';
-
-interface PageProps {
-  data: PostProps;
-}
+interface PageProps extends PostPageProps {}
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  try {
-    const request = await fetch(`${process.env.HOST as string}/api/post`);
-    const data = await request.json();
-    const { posts } = data as { posts: PostProps[] };
+  const dto = new PostDTO();
+  const listAllPosts = new ListAllPosts(dto);
+  const posts = await listAllPosts.execute();
 
-    return {
-      paths: posts.map((post) => `/post/${post.id}`),
-      fallback: false,
-    };
-  } catch (error) {
-    return {
-      paths: [],
-      fallback: false,
-    };
-  }
+  return {
+    paths: posts.map((post) => `/post/${post.id}`),
+    fallback: false,
+  };
 };
 
 export const getStaticProps: GetStaticProps = async (
   ctx,
-): Promise<{ props: PageProps }> => {
-  try {
-    if (!ctx.params?.id) throw new Error('id required');
+): Promise<{ props: PostPageProps }> => {
+  if (!ctx.params?.id) throw new Error('id required');
 
-    const { id } = ctx.params;
-    if (typeof id !== 'string') throw new Error('id must be a string');
-    const request = await fetch(`${process.env.HOST as string}/api/post/${id}`);
-    const data = await request.json();
-    const post: PostProps = data.posts;
+  const { id } = ctx.params;
+  if (typeof id !== 'string') throw new Error('id must be a string');
+  const dto = new PostDTO();
+  const listOnePost = new ListOnePost(dto);
+  const post = await listOnePost.execute({ postId: id });
 
-    return {
-      props: {
-        data: post,
+  return {
+    props: {
+      data: {
+        body: post?.body ?? '',
+        title: post?.title ?? '',
+        user: post?.user ?? '',
       },
-    };
-  } catch (error) {
-    return {
-      props: {
-        data: {
-          body: 'Not Found',
-          id: '0',
-          title: 'Not Found',
-          user: 'XXXXXXXXX',
-        },
-      },
-    };
-  }
+    },
+  };
 };
 
 export default function Page({ data }: PageProps): JSX.Element {
-  return (
-    <article>
-      <header>
-        <h1>{data.title}</h1>
-      </header>
-      <main>{data.body}</main>
-      <footer>
-        <p>Posted by: {data.user}</p>
-      </footer>
-    </article>
-  );
+  return <Post data={data} />;
 }

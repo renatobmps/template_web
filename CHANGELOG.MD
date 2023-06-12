@@ -1,5 +1,7 @@
 # Change log
 
+- 0.5.0 - Improving infrastructure
+  - 0.4.4 - Added vitest as testing library and added to all current files
   - 0.4.3 - Added typescript alias to easy import files
   - 0.4.2 - A better description for this project was added
   - 0.4.1 - A new way to create versions was implemented. All tasks and versions can be viewed on todo.MD file

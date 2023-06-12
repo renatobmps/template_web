@@ -1,16 +1,15 @@
 import { describe, expect, it, vi } from 'vitest';
-
 import PostRepositoryIM from './postRepositoryIM';
 
 describe('PostRepositoryIM', () => {
-  const dto = new PostRepositoryIM();
+  const repository = new PostRepositoryIM();
 
   it('should be defined', () => {
     expect(PostRepositoryIM).toBeDefined();
   });
 
   it('should to return a void list of posts', async () => {
-    const list = await dto.readAll();
+    const list = await repository.readAll();
 
     expect(list).toBeDefined();
     expect(list).toBeInstanceOf(Array);
@@ -18,9 +17,9 @@ describe('PostRepositoryIM', () => {
   });
 
   it('should to create a post', async () => {
-    const dtoMock = vi.spyOn(dto, 'create');
+    const dtoMock = vi.spyOn(repository, 'create');
 
-    await dto.create({
+    await repository.create({
       title: 'test',
       body: 'test body',
       id: 'test id',
@@ -31,7 +30,7 @@ describe('PostRepositoryIM', () => {
   });
 
   it('should to return a duplicated post by title', async () => {
-    const duplicatedPost = await dto.findDuplicatedTitle('test');
+    const duplicatedPost = await repository.findDuplicatedTitle('test');
 
     expect(duplicatedPost).toBeDefined();
     expect(duplicatedPost).toBeInstanceOf(Object);
@@ -42,22 +41,22 @@ describe('PostRepositoryIM', () => {
   });
 
   it('should to return null if not found a duplicated post by title', async () => {
-    const duplicatedPost = await dto.findDuplicatedTitle('test2');
+    const duplicatedPost = await repository.findDuplicatedTitle('test2');
 
     expect(duplicatedPost).toBeNull();
   });
 
   it('should to create a new post and return a list including new posts', async () => {
-    const dtoMock = vi.spyOn(dto, 'create');
+    const dtoMock = vi.spyOn(repository, 'create');
 
-    await dto.create({
+    await repository.create({
       title: 'new test',
       body: 'new test body',
       id: 'new test id',
       user: 'XXXX',
     });
 
-    const list = await dto.readAll();
+    const list = await repository.readAll();
 
     expect(dtoMock).toHaveBeenCalled();
     expect(list).toBeDefined();
@@ -78,7 +77,7 @@ describe('PostRepositoryIM', () => {
   });
 
   it('should to return a post by id', async () => {
-    const post = await dto.readOne('test id');
+    const post = await repository.readOne('test id');
 
     expect(post).toBeDefined();
     expect(post).toBeInstanceOf(Object);

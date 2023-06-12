@@ -7,7 +7,7 @@ export interface PostProps {
   user: string;
 }
 
-export class Post {
+export default class Post {
   private readonly props: PostProps;
 
   private validateBody(body: string): true {

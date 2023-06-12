@@ -1,6 +1,10 @@
 import type PostRepository from 'src/server/providers/postRepository';
 
-type ListAllPostsResponse = Array<{ id: string; title: string }>;
+export type ListAllPostsResponse = Array<{
+  id: string;
+  title: string;
+  link: string;
+}>;
 
 export default class ListAllPosts {
   constructor(private readonly postsRepository: PostRepository) {}

@@ -47,11 +47,11 @@ Tag > branch > commit
     - [X] 0.3.7 - Create API calls and call use cases to be allow uses API integration with in memory data
     - [X] 0.3.8 - Add Prisma, configure module Post and create DTO implementation
     - [X] 0.3.9 - Add zod and change API calls
-  - [ ] 0.5.0 - Improve general
+  - [X] 0.5.0 - Improve general
     - [X] 0.4.1 - Fix versions system
     - [X] 0.4.2 - Inform more about the object of this template project to help community
     - [X] 0.4.3 - Add typescript aliases
-    - [ ] 0.4.4 - Add vitest and start testing all files
+    - [X] 0.4.4 - Add vitest and start testing all files
   - [ ] 0.6.0 - Login
     - [ ] 0.5.1 - Create User entity
     - [ ] 0.5.2 - Create use case (create and login)

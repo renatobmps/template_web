@@ -33,3 +33,7 @@ This frontend is using Next.js, it's mean that you can use functions as getStati
 ## About backend
 
 The API is made using SOLID principles. SOLID helps you to have a scalable API because it uses Liskov substitution principle and Dependency Injection principle and this allows you to create uncoupled entities. This principles helps with automated testing too, because is possible to use a In Memory database without problem, for example.
+
+## About general
+
+All application is covered by tests using vitest library

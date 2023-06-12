@@ -1,7 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-
 import InMemoryPostRepository from '@serverProviders/implementations/postRepositoryIM';
-
 import ListAllPosts from './listAllPosts';
 
 describe('ListAllPosts', () => {
