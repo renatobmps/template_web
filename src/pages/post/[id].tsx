@@ -13,11 +13,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await listAllPosts.execute();
 
   return {
-    paths: posts.map((post) => ({
-      params: {
-        id: post.id,
-      },
-    })),
+    paths: posts.map((post) => `/post/${post.id}`),
     fallback: 'blocking',
   };
 };
