@@ -20,7 +20,7 @@ const methods: Record<
     });
     const { body, title, user } = bodyData.parse(req.body);
 
-    const newPost = createPost.execute({
+    const newPost = await createPost.execute({
       body,
       title,
       user,

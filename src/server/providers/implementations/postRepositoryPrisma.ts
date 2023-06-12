@@ -17,7 +17,12 @@ export default class PostRepositoryPrisma implements PostRepository {
 
   async create(post: Post): Promise<void> {
     await this.prisma.post.create({
-      data: post,
+      data: {
+        body: post.body,
+        title: post.title,
+        user: post.user,
+        id: post.id,
+      },
     });
   }
 

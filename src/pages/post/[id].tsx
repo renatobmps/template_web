@@ -12,9 +12,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const listAllPosts = new ListAllPosts(dto);
   const posts = await listAllPosts.execute();
 
+  const paths = posts.map((post) => `/post/${post.id}`);
+  const fallback = 'blocking';
+
+  // eslint-disable-next-line no-console
+  console.log({
+    paths,
+    fallback,
+  });
+
   return {
-    paths: posts.map((post) => `/post/${post.id}`),
-    fallback: 'blocking',
+    paths,
+    fallback,
   };
 };
 
