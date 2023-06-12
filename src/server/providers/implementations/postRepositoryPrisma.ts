@@ -1,8 +1,10 @@
+/* eslint-disable prettier/prettier */
+import type PostRepository from '@serverProviders/postRepository';
 import { type Prisma, PrismaClient } from '@prisma/client';
-import { type PostProps } from '../../entities/post';
-import type PostRepository from '../postRepository';
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import Post, { PostProps } from '@serverEntities/post';
 
-export default class PostDTO implements PostRepository {
+export default class PostRepositoryPrisma implements PostRepository {
   prisma: PrismaClient<
     Prisma.PrismaClientOptions,
     never,
@@ -13,9 +15,14 @@ export default class PostDTO implements PostRepository {
     this.prisma = new PrismaClient();
   }
 
-  async create(post: PostProps): Promise<void> {
+  async create(post: Post): Promise<void> {
     await this.prisma.post.create({
-      data: post,
+      data: {
+        body: post.body,
+        title: post.title,
+        user: post.user,
+        id: post.id,
+      },
     });
   }
 
@@ -40,7 +47,7 @@ export default class PostDTO implements PostRepository {
 
       return posts.map((post) => ({
         ...post,
-        link: `${process.env.HOST as string}/api/post/${post.id}`,
+        link: `${process.env.HOST as string}/post/${post.id}`,
       }));
     } catch (error) {
       return [];

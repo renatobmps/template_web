@@ -1,4 +1,24 @@
 {
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "importOrder": [
+    "^import type",
+    "^import",
+    "^\\u0000",
+    "^@serverProviders",
+    "^@serverUseCases",
+    "^@",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true,
+  "organizeImportsSkipDestructiveCodeActions": true,
+  "plugins": [
+    "prettier-plugin-sorted"
+  ],
+  "printWidth": 80,
+  "semi": true,
   "singleQuote": true,
+  "tabWidth": 2,
   "trailingComma": "all"
 }

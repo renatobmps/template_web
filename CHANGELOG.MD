@@ -1,9 +1,33 @@
 # Change log
 
-- 1.3.0 - API using SOLID and Prisma ORM
-- 1.2.1 - fix prettier
-- 1.2.0 - Adding API support with SOLID pattern
-- 1.1.2 - Adding husky and running test and lint scripts
-- 1.1.1 - Adding eslint and prettier
-- 1.1.0 - Added next.js
-- 1.0.0 - Project was created
+- 0.5.0 - Improving infrastructure
+  - 0.4.4 - Added vitest as testing library and added to all current files
+  - 0.4.3 - Added typescript alias to easy import files
+  - 0.4.2 - A better description for this project was added
+  - 0.4.1 - A new way to create versions was implemented. All tasks and versions can be viewed on todo.MD file
+- 0.4.0 - API with SOLID principles was created (feat_starting_api_solid)
+  - 0.3.9 - Zod was added to validate request data on API
+  - 0.3.8 - Prisma ORM was added and repository DTO was created
+  - 0.3.7 - API calls was created using in memory repositories
+  - 0.3.6 - Link use cases and repositories in API
+  - 0.3.5 - Started with API's in memory repository to prepare for tests
+  - 0.3.4 - Started with API's repository
+  - 0.3.3 - Started with API's use cases
+  - 0.3.2 - Started with API's entities
+  - 0.3.1 - A server directory was created to API proposal
+- 0.3.0 - Environment configuration was finished (master)
+  - 0.2.4 - package.json data was updated to link with remote repository
+  - 0.2.3 - Husky was added and configured to lint and test before commit
+  - 0.2.2 - Scripts to test, lint and format code was created
+  - 0.2.1 - Eslint and Prettier was added
+- 0.2.0 - Frontend start is working (master)
+  - 0.1.3 - The first page was created to first test
+  - 0.1.2 - Next.js scripts was added on package.json
+  - 0.1.1 - Next.js was added
+- 0.1.0 - Start step was finished (master)
+  - 0.0.6 - Typescript support was added
+  - 0.0.5 - This file was create to list all changes
+  - 0.0.4 - README.MD file was created to explain a little bit of project
+  - 0.0.3 - MIT license was added
+  - 0.0.2 - Added .gitignore with ```npx gitignore node``` command
+  - 0.0.1 - Node project was created

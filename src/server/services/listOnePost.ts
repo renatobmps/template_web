@@ -1,11 +1,14 @@
-import { type PostProps } from '../entities/post';
-import type PostRepository from '../repositories/postRepository';
+import type PostRepository from 'src/server/providers/postRepository';
 
 interface ListOnePostRequest {
   postId: string;
 }
 
-type ListOnePostResponse = PostProps;
+export interface ListOnePostResponse {
+  title: string;
+  body: string;
+  user: string;
+}
 
 export default class ListOnePost {
   constructor(private readonly postRepository: PostRepository) {}

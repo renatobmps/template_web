@@ -38,7 +38,6 @@ module.exports = {
     '@typescript-eslint/eslint-plugin',
     'jsx-a11y',
     'react',
-    '@typescript-eslint'
   ],
   root: true,
   rules: {
@@ -55,15 +54,27 @@ module.exports = {
         requireLast: false,
       },
     }],
-    '@typescript-eslint/semi': ['error', 'always'],
-    '@typescript-eslint/space-before-function-paren': ['off'],
-    'class-methods-use-this': ['warn'],
-    'import/extensions': [
-      2,
+    "@typescript-eslint/no-misused-promises": [
+      "error",
       {
-        'tsx': 'never'
+        "checksVoidReturn": false
       }
     ],
+    '@typescript-eslint/semi': ['error', 'always'],
+    '@typescript-eslint/space-before-function-paren': ['off'],
+    '@typescript-eslint/strict-boolean-expressions': ['off'],
+    'class-methods-use-this': ['off'],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "import/order": ["error"],
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -93,18 +104,7 @@ module.exports = {
     'no-console': ['error'],
     'no-duplicate-imports': ['error'],
     'no-param-reassign': ['error'],
-    'prettier/prettier': [
-      'error',
-      {
-        arrowParens: 'always',
-        endOfLine: 'auto',
-        printWidth: 80,
-        tabWidth: 2,
-        trailingComma: 'all',
-        semi: true,
-        singleQuote: true,
-      },
-    ],
+    'prettier/prettier': ['error'],
     quotes: ['error', 'single'],
     'react/jsx-filename-extension': [
       1,
@@ -113,6 +113,7 @@ module.exports = {
       },
     ],
     'react/react-in-jsx-scope': ['off'],
+    "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
   },
   settings: {
     react: {

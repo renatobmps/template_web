@@ -20,21 +20,48 @@
     "noEmit": true,
     "noEmitOnError": true,
     "noImplicitReturns": true,
-    "paths": {},
+    "paths": {
+      "@errors/*": [
+        "./src/errors/*"
+      ],
+      "@helpers/*": [
+        "./src/helpers/*"
+      ],
+      "@serverEntities/*": [
+        "./src/server/entities/*"
+      ],
+      "@serverProviders/*": [
+        "./src/server/providers/*"
+      ],
+      "@serverUseCases/*": [
+        "./src/server/services/*"
+      ],
+      "@UIPages/*": [
+        "./src/UI/pages/*"
+      ],
+      "@UIShared/*": [
+        "./src/UI/shared/*"
+      ]
+    },
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "target": "es2016",
-    "useUnknownInCatchVariables": true,
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
+    ],
+    "useUnknownInCatchVariables": true
   },
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
   ]
 }

@@ -1,37 +1,34 @@
-import { Post, type PostProps } from '../entities/post';
-import type PostRepository from '../repositories/postRepository';
+import type PostRepository from 'src/server/providers/postRepository';
+import Post from '@serverEntities/post';
 
-interface CreatePostRequest extends PostProps {}
+interface CreatePostRequest {
+  title: string;
+  body: string;
+  user: string;
+}
 
-type CreatePostResponse = Post;
+interface CreatePostResponse {
+  id: string;
+  title: string;
+  body: string;
+  user: string;
+}
 
 export default class CreatePost {
   constructor(private readonly postRepository: PostRepository) {}
-
-  private async validateRules(title: string): Promise<void> {
-    const duplicatedPost = await this.postRepository.findDuplicatedTitle(title);
-    if (duplicatedPost != null) throw new Error('Post already exists');
-  }
 
   async execute({
     body,
     title,
     user,
   }: Omit<CreatePostRequest, 'id'>): Promise<CreatePostResponse> {
-    await this.validateRules(title);
-
     const post = new Post({
       body,
       title,
       user,
     });
 
-    await this.postRepository.create({
-      body: post.body,
-      id: post.id,
-      title: post.title,
-      user: post.user,
-    });
+    await this.postRepository.create(post);
 
     return post;
   }
