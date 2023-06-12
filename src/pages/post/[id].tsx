@@ -2,6 +2,7 @@ import { type GetStaticPaths, type GetStaticProps } from 'next';
 import PostDTO from '@serverProviders/implementations/postRepositoryPrisma';
 import ListAllPosts from '@serverUseCases/listAllPosts';
 import ListOnePost from '@serverUseCases/listOnePost';
+import NotFound from '@UIPages/NotFound';
 import Post, { type PostPageProps } from '@UIPages/Post';
 
 interface PageProps extends PostPageProps {}
@@ -12,17 +13,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await listAllPosts.execute();
 
   return {
-    paths: posts.map((post) => `/post/${post.id}`),
-    fallback: false,
+    paths: posts.map((post) => ({
+      params: {
+        id: post.id,
+      },
+    })),
+    fallback: 'blocking',
   };
 };
 
 export const getStaticProps: GetStaticProps = async (
-  ctx,
+  context,
 ): Promise<{ props: PostPageProps }> => {
-  if (!ctx.params?.id) throw new Error('id required');
+  if (!context.params?.id) throw new Error('id required');
 
-  const { id } = ctx.params;
+  const { id } = context.params;
   if (typeof id !== 'string') throw new Error('id must be a string');
   const dto = new PostDTO();
   const listOnePost = new ListOnePost(dto);
@@ -40,5 +45,8 @@ export const getStaticProps: GetStaticProps = async (
 };
 
 export default function Page({ data }: PageProps): JSX.Element {
+  if (!data.body || !data.title || !data.user) {
+    return <NotFound />;
+  }
   return <Post data={data} />;
 }
