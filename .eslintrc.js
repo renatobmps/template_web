@@ -64,23 +64,17 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': ['off'],
     '@typescript-eslint/strict-boolean-expressions': ['off'],
     'class-methods-use-this': ['off'],
-    'import/extensions': [
-      2,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
       {
-        'tsx': 'never'
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
       }
     ],
-    "import/order": [
-      "warn",
-      {
-        "groups": [
-          ["builtin", "external"],
-          ["internal", "parent"],
-          ["sibling", "index"]
-        ],
-        "newlines-between": "ignore"
-      }
-    ],
+    "import/order": ["error"],
     'import/no-extraneous-dependencies': [
       'error',
       {

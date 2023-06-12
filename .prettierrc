@@ -2,11 +2,15 @@
   "arrowParens": "always",
   "endOfLine": "auto",
   "importOrder": [
-    "^node:",
+    "^import type",
+    "^import",
+    "^\\u0000",
+    "^@serverProviders",
+    "^@serverUseCases",
     "^@",
     "^[./]"
   ],
-  "importOrderSeparation": true,
+  "importOrderSeparation": false,
   "importOrderSortSpecifiers": true,
   "organizeImportsSkipDestructiveCodeActions": true,
   "plugins": [
