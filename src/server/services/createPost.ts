@@ -19,12 +19,7 @@ export default class CreatePost {
       user,
     });
 
-    await this.postRepository.create({
-      body: post.body,
-      id: post.id,
-      title: post.title,
-      user: post.user,
-    });
+    await this.postRepository.create(post);
 
     return post;
   }
