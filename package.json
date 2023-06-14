@@ -13,8 +13,8 @@
     "test:coverage": "vitest run --coverage"
   },
   "engines": {
-    "node": "v18.15.0",
-    "npm": "9.5.0"
+    "node": ">=v18.15.0",
+    "npm": ">=9.5.0"
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
