@@ -15,12 +15,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = posts.map((post) => `/post/${post.id}`);
   const fallback = 'blocking';
 
-  // eslint-disable-next-line no-console
-  console.log({
-    paths,
-    fallback,
-  });
-
   return {
     paths,
     fallback,

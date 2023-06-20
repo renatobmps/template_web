@@ -21,7 +21,7 @@ export default class CreatePost {
     body,
     title,
     user,
-  }: Omit<CreatePostRequest, 'id'>): Promise<CreatePostResponse> {
+  }: CreatePostRequest): Promise<CreatePostResponse> {
     const post = new Post({
       body,
       title,

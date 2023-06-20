@@ -2,7 +2,7 @@
 
 ## Problem Description
 
-Criar app fullstack onde uma **pessoa** pode criar um **cadastro**, fazer **login** e fazer **postagens** como um blog
+Create a fullstack app, some like a blog page, where is possible to public access to read **all posts** and people can **create an account**, **login** and **create another posts**.
 
 ## List of versions
 
@@ -53,7 +53,7 @@ Tag > branch > commit
     - [X] 0.4.3 - Add typescript aliases
     - [X] 0.4.4 - Add vitest and start testing all files
   - [ ] 0.6.0 - Login
-    - [ ] 0.5.1 - Create User entity
+    - [X] 0.5.1 - Create User entity
     - [ ] 0.5.2 - Create use case (create and login)
     - [ ] 0.5.2 - Create repository to User
     - [ ] 0.5.3 - Create in memory repository and prisma repository
