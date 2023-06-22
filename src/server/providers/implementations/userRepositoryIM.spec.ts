@@ -104,4 +104,10 @@ describe('UserRepositoryIM', () => {
     expect(user).toHaveProperty('email', 'test email');
     expect(user).toHaveProperty('password', 'XXXXXXXXXXXXX');
   });
+
+  it('should to return null if not found a user by id', async () => {
+    const user = await repository.readOne('test2');
+
+    expect(user).toBeNull();
+  });
 });

@@ -18,10 +18,14 @@ export default async function endpointMethodHandler(
       await methods[method as string](request, response);
     } catch (e) {
       const error = e as GeneralError;
+      const errorMessage =
+        error?.message && error?.message.length
+          ? error.message
+          : 'Unknown error';
       response.status(error?.message ? 400 : 500).json({
-        message: error?.message ? error.message : 'Unknown error',
+        message: errorMessage,
       });
-      throw error;
+      throw new Error(errorMessage);
     }
   } else {
     response.setHeader('Allow', Object.keys(methods));
