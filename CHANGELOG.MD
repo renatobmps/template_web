@@ -1,5 +1,6 @@
 # Change log
 
+    - 0.5.8.1 - Improving user experience with correct page flow
   - 0.5.6 - Created API integration to create an user and to make login
   - 0.5.5 - Implemented userRepository with Prisma
   - 0.5.4 - Created In Memory repository to user repository

@@ -1,10 +1,20 @@
 import Link from 'next/link';
-import { type CSSProperties, useEffect, useState } from 'react';
+import Router from 'next/router';
+import { type CSSProperties, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import type GeneralError from '@errors/GeneralError';
 import Api from '@helpers/api';
-import LogInButtons from './LogInButtons';
-import LogOffButton from './LogOffButton';
+
+interface ApiResponse {
+  newPost: {
+    props: {
+      body: string;
+      id: string;
+      title: string;
+      user: string;
+    };
+  };
+}
 
 const formStyle: CSSProperties = {
   display: 'flex',
@@ -24,14 +34,9 @@ const labelStyle: CSSProperties = {
 
 export default function AddPost(): JSX.Element {
   const [cookies] = useCookies(['token']);
-  const [isLogged, setLogin] = useState<boolean>(false);
 
   useEffect(() => {
-    if (cookies.token) {
-      setLogin(true);
-    } else {
-      setLogin(false);
-    }
+    if (!cookies.token) void Router.push('/');
   }, [cookies]);
 
   const onSubmit = async (
@@ -44,13 +49,15 @@ export default function AddPost(): JSX.Element {
     currentTarget.querySelector('button')?.setAttribute('disabled', 'true');
     try {
       const api = new Api();
-      await api.post({
+      const { newPost }: ApiResponse = await api.post({
         url: '/api/post',
         data,
         clientErrorMessage: 'Problem with server! :(',
       });
 
       window.alert('Created :)');
+
+      await Router.push(`/post/${newPost.props.id}`);
     } catch (e) {
       const error = e as GeneralError;
       window.alert(error.message || 'Unexpected error');
@@ -62,15 +69,13 @@ export default function AddPost(): JSX.Element {
 
   return (
     <div>
-      {isLogged ? <LogOffButton handleLogIn={setLogin} /> : <LogInButtons />}
-      <h1>Hello World</h1>
-      <Link href="/post">Ver postagens</Link>
+      <Link href="/">Ver postagens</Link>
       <article>
         <h2>New post</h2>
         <form style={formStyle} onSubmit={onSubmit}>
           <label style={labelStyle} htmlFor="title">
             <span>Title</span>
-            <input name="title" id="title" />
+            <input name="title" id="title" autoFocus />
           </label>
           <label style={labelStyle} htmlFor="body">
             <span>Post</span>

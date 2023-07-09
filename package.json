@@ -1,6 +1,6 @@
 {
   "name": "template",
-  "version": "0.5.6",
+  "version": "0.5.8.1",
   "scripts": {
     "build": "prisma generate && rm -fr .next ; next build",
     "dev": "DEBUG=* rm -fr .next ; next dev",
