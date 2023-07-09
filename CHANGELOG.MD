@@ -1,5 +1,6 @@
 # Change log
 
+  - 0.5.3 - Implemented userRepository with Prisma
   - 0.5.2 - CreateUser and MakeLogin use cases was created
   - 0.5.1 - User entity was created
 - 0.5.0 - Improving infrastructure

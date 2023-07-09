@@ -55,12 +55,13 @@ Tag > branch > commit
   - [ ] 0.6.0 - Login
     - [X] 0.5.1 - Create User entity
     - [X] 0.5.2 - Create use case (create and login)
-    - [ ] 0.5.2 - Create repository to User
-    - [ ] 0.5.3 - Create in memory repository and prisma repository
-    - [ ] 0.5.4 - Create API integration
-    - [ ] 0.5.5 - Use cookies to create login session
-    - [ ] 0.5.6 - Create login and register pages and redirects (if logging, redirect to posts, else redirect to login)
-    - [ ] 0.5.7 - Remove username field to post create
+    - [X] 0.5.3 - Create repository contract to User
+    - [X] 0.5.4 - Create in memory repository and prisma repository
+    - [X] 0.5.5 - Create prisma user repository
+    - [ ] 0.5.6 - Create API integration
+    - [ ] 0.5.7 - Use cookies to create login session
+    - [ ] 0.5.8 - Create login and register pages and redirects (if logging, redirect to posts, else redirect to login)
+    - [ ] 0.5.9 - Remove username field to post create
   - [ ] 0.7.0 - Improve frontend
     - [ ] 0.6.1 - Fix page flow and create pages
         - **/** list of posts
