@@ -54,7 +54,7 @@ Tag > branch > commit
     - [X] 0.4.4 - Add vitest and start testing all files
   - [ ] 0.6.0 - Login
     - [X] 0.5.1 - Create User entity
-    - [ ] 0.5.2 - Create use case (create and login)
+    - [X] 0.5.2 - Create use case (create and login)
     - [ ] 0.5.2 - Create repository to User
     - [ ] 0.5.3 - Create in memory repository and prisma repository
     - [ ] 0.5.4 - Create API integration

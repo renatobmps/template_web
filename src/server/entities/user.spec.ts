@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import { describe, expect, it } from 'vitest';
 import User from './user';
 
@@ -33,9 +32,7 @@ describe('User', () => {
       expect(newUser.password).toBeDefined();
       expect(typeof newUser.password).toBe('string');
       expect(newUser.password.length).toBeGreaterThan(10);
-      expect(
-        bcrypt.compare(newUser.password, validUserData.password),
-      ).toBeTruthy();
+      expect(newUser.isMathPassword(validUserData.password)).toBeTruthy();
     });
 
     it('should to be possible to create a new User without an ID', () => {
@@ -55,9 +52,7 @@ describe('User', () => {
       expect(newUser.password).toBeDefined();
       expect(typeof newUser.password).toBe('string');
       expect(newUser.password.length).toBeGreaterThan(10);
-      expect(
-        bcrypt.compare(newUser.password, validUserData.password),
-      ).toBeTruthy();
+      expect(newUser.isMathPassword(validUserData.password)).toBeTruthy();
     });
 
     it('should to throw an error when try to change ID after creating', () => {
@@ -232,6 +227,20 @@ describe('User', () => {
           password: 'XxXxXxXxXxXx123',
         });
       }).toThrow('A password should have at least one special character');
+    });
+  });
+
+  describe('Login', () => {
+    it('should to validate password to login', async () => {
+      const user = new User(validUserData);
+
+      expect(await user.isMathPassword(validUserData.password)).toBeTruthy();
+    });
+
+    it('should to not validate invalid password to login', async () => {
+      const user = new User(validUserData);
+
+      expect(await user.isMathPassword('invalid_password')).toBeFalsy();
     });
   });
 });

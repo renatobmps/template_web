@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import InMemoryPostRepository from '@serverProviders/implementations/postRepositoryIM';
+import InMemoryPostRepository from '@serverRepositories/implementations/postRepositoryIM';
 import CreatePost from './createPost';
 import ListOnePost from './listOnePost';
 
@@ -35,6 +35,12 @@ describe('ListOnePost.ts', () => {
   it('should ListOnePost.execute returns the correct post for a given post ID', async () => {
     const postRepository = {
       readOne: vi.fn().mockResolvedValue({ id: '1', title: 'Post 1' }),
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      create: async () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      findDuplicatedTitle: async () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      readAll: async () => { return []; },
     };
     const listOnePostF = new ListOnePost(postRepository);
     const response = await listOnePostF.execute({ postId: '1' });
@@ -45,6 +51,12 @@ describe('ListOnePost.ts', () => {
   it('should ListOnePost.execute throws an error when the post ID is invalid', async () => {
     const postRepository = {
       readOne: vi.fn(),
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      create: async () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      findDuplicatedTitle: async () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      readAll: async () => { return []; },
     };
     const listOnePostFn = new ListOnePost(postRepository);
     await expect(listOnePostFn.execute({ postId: '' })).rejects.toThrow(

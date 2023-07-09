@@ -1,6 +1,6 @@
-import PostDTO from '@serverProviders/implementations/postRepositoryPrisma';
 import ListAllPosts from '@serverUseCases/listAllPosts';
 import PostList, { type PostListProps } from '@UIPages/PostList';
+import PostDTO from '@serverRepositories/implementations/postRepositoryPrisma';
 
 interface PageProps extends PostListProps {}
 

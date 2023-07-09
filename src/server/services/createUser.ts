@@ -1,5 +1,5 @@
-import type UserRepository from '@serverProviders/userRepository';
 import User from '@serverEntities/user';
+import type UserRepository from '@serverRepositories/userRepository';
 
 interface CreateUserRequest {
   username: string;

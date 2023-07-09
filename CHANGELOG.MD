@@ -1,5 +1,6 @@
 # Change log
 
+  - 0.5.2 - CreateUser and MakeLogin use cases was created
   - 0.5.1 - User entity was created
 - 0.5.0 - Improving infrastructure
   - 0.4.4 - Added vitest as testing library and added to all current files

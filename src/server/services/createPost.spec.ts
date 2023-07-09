@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import InMemoryPostRepository from '@serverProviders/implementations/postRepositoryIM';
+import InMemoryPostRepository from '@serverRepositories/implementations/postRepositoryIM';
 import type GeneralError from '@errors/GeneralError';
 import CreatePost from './createPost';
 

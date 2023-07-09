@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
-import PostDTO from '@serverProviders/implementations/postRepositoryPrisma';
 import CreatePost from '@serverUseCases/createPost';
 import endpointMethodHandler from '@helpers/endpointMethodHandler';
+import PostDTO from '@serverRepositories/implementations/postRepositoryPrisma';
 
 const dto = new PostDTO();
 

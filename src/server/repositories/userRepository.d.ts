@@ -6,4 +6,6 @@ export default interface UserRepository {
   findDuplicatedUsername(username: string): Promise<User | null>;
   findDuplicatedEmail(email: string): Promise<User | null>;
   readOne(id: string): Promise<User | null>;
+  findByEmail(email: string): Promise<User | null>;
+  findByUsername(username: string): Promise<User | null>;
 }

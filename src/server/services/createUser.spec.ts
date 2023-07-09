@@ -1,5 +1,5 @@
 import { describe } from 'vitest';
-import UserRepositoryIM from '@serverProviders/implementations/userRepositoryIM';
+import UserRepositoryIM from '@serverRepositories/implementations/userRepositoryIM';
 import CreateUser from './createUser';
 
 describe('CreateUser', () => {

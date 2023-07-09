@@ -13,6 +13,12 @@ export interface UserProps {
 class User {
   private readonly props: UserProps;
 
+  public async isMathPassword(password: string): Promise<boolean> {
+    const isValidPassword = await bcrypt.compare(password, this.props.password);
+
+    return isValidPassword;
+  }
+
   private validateId(id: string): true {
     throw new Error('You can not change the ID of a User');
   }
@@ -88,21 +94,33 @@ class User {
 
   set password(password: string) {
     this.validatePassword(password);
-    this.props.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+    bcrypt.genSalt(10, (_err, salt) => {
+      bcrypt.hash(password, salt, (_error, hash) => {
+        this.props.password = hash;
+      });
+    });
   }
 
   get password(): string {
     return this.props.password;
   }
 
-  constructor(props: Omit<UserProps, 'id'>, id?: string) {
+  constructor(
+    props: Omit<UserProps, 'id'>,
+    id?: string,
+    shouldEncryptPassword = true,
+  ) {
     this.validateUsername(props.username);
     this.validateEmail(props.email);
-    this.validatePassword(props.password);
+    if (shouldEncryptPassword) {
+      this.validatePassword(props.password);
+    }
 
     this.props = {
       ...props,
-      password: bcrypt.hashSync(props.password, bcrypt.genSaltSync(10)),
+      password: shouldEncryptPassword
+        ? bcrypt.hashSync(props.password, bcrypt.genSaltSync(10))
+        : props.password,
       id: id ?? randomUUID(),
     };
   }

@@ -1,5 +1,5 @@
-import type PostRepository from 'src/server/providers/postRepository';
 import Post from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 interface CreatePostRequest {
   title: string;
