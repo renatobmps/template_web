@@ -7,7 +7,7 @@
     "export": "npm run build && next export",
     "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.ts\"",
     "lint": "next lint",
-    "prepare": "nvm install ; husky install",
+    "prepare": "husky install",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
     "start": "npm run build && NODE_ENV=production next start -p 80",
