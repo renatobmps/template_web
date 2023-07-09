@@ -1,5 +1,6 @@
 import Router from 'next/router';
-import { useState } from 'react';
+import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import type GeneralError from '@errors/GeneralError';
 import Api from '@helpers/api';
 
@@ -10,18 +11,25 @@ interface FormDataProps {
 }
 
 export default function Register(): JSX.Element {
+  const [cookies] = useCookies(['token']);
+  useEffect(() => {
+    if (cookies.token) void Router.push('/');
+  }, [cookies]);
+
   const [formData, setFormData] = useState<FormDataProps>({
     email: '',
     password: '',
     username: '',
   });
 
-  const handleInput: (e: any) => void = (e: any) => {
+  const handleInput: (e: ChangeEvent<HTMLInputElement>) => void = (e) => {
     const { id, value } = e.currentTarget;
     setFormData({ ...formData, [id]: value });
   };
 
-  const formSubmit: (event: any) => Promise<void> = async (event) => {
+  const formSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void> = async (
+    event,
+  ) => {
     try {
       event.preventDefault();
       const api = new Api();
@@ -37,7 +45,7 @@ export default function Register(): JSX.Element {
         username: '',
       });
 
-      await Router.push('/');
+      await Router.push('/user/login');
     } catch (e) {
       const error = e as GeneralError;
       window.alert(error.message || 'Unexpected error');

@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { cookies } from 'next/headers';
 import { z } from 'zod';
 import MakeLogin from '@serverUseCases/makeLogin';
 import endpointMethodHandler from '@helpers/endpointMethodHandler';
@@ -26,9 +25,6 @@ const methods: Record<
       password,
       loginMethod,
     });
-
-    const pageCookies = cookies();
-    console.log({ token, pageCookies });
 
     res.status(201).json({ token });
   },

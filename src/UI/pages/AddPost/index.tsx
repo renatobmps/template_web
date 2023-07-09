@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import { type CSSProperties } from 'react';
+import { type CSSProperties, useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import type GeneralError from '@errors/GeneralError';
 import Api from '@helpers/api';
+import LogInButtons from './LogInButtons';
+import LogOffButton from './LogOffButton';
 
 const formStyle: CSSProperties = {
   display: 'flex',
@@ -20,6 +23,17 @@ const labelStyle: CSSProperties = {
 };
 
 export default function AddPost(): JSX.Element {
+  const [cookies] = useCookies(['token']);
+  const [isLogged, setLogin] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (cookies.token) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
+  }, [cookies]);
+
   const onSubmit = async (
     event: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
@@ -48,9 +62,7 @@ export default function AddPost(): JSX.Element {
 
   return (
     <div>
-      <Link href="/user/login">Try login</Link>
-      <br />
-      <Link href="/user/register">Create register</Link>
+      {isLogged ? <LogOffButton handleLogIn={setLogin} /> : <LogInButtons />}
       <h1>Hello World</h1>
       <Link href="/post">Ver postagens</Link>
       <article>

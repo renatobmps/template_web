@@ -8,12 +8,12 @@ interface Post<T> {
 }
 
 class Api {
-  async post<T>({
+  async post<T, R>({
     data,
     url,
     expectStatus = 201,
     clientErrorMessage,
-  }: Post<T>): Promise<T> {
+  }: Post<T>): Promise<R> {
     try {
       const response = await fetch(url, {
         method: 'POST',

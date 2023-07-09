@@ -59,8 +59,8 @@ Tag > branch > commit
     - [X] 0.5.4 - Create in memory repository and prisma repository
     - [X] 0.5.5 - Create prisma user repository
     - [X] 0.5.6 - Create API integration
-    - [ ] 0.5.7 - Use cookies to create login session
-    - [ ] 0.5.8 - Create login and register pages and redirects (if logging, redirect to posts, else redirect to login)
+    - [X] 0.5.7 - Use cookies to create login session
+    - [X] 0.5.8 - Create login and register pages and redirects (if logging, redirect to posts, else redirect to login)
     - [ ] 0.5.9 - Remove username field to post create
   - [ ] 0.7.0 - Improve frontend
     - [ ] 0.6.1 - Fix page flow and create pages

@@ -1,5 +1,6 @@
 import Router from 'next/router';
-import { useState } from 'react';
+import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie';
 import type GeneralError from '@errors/GeneralError';
 import Api from '@helpers/api';
 
@@ -10,13 +11,18 @@ interface FormDataProps {
 }
 
 export default function Register(): JSX.Element {
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
+  useEffect(() => {
+    if (cookies.token) void Router.push('/');
+  }, [cookies]);
+
   const [formData, setFormData] = useState<FormDataProps>({
-    login: 'another_user@gmail.com',
-    password: 'f7GQ5p2CJY^h',
-    loginMethod: 'email',
+    login: '',
+    password: '',
+    loginMethod: 'username',
   });
 
-  const handleInput: (e: any) => void = (e: any) => {
+  const handleInput: (e: ChangeEvent<HTMLInputElement>) => void = (e) => {
     const { id, value } = e.currentTarget;
 
     if (id === 'login') {
@@ -34,15 +40,20 @@ export default function Register(): JSX.Element {
     }
   };
 
-  const formSubmit: (event: any) => Promise<void> = async (event) => {
+  const formSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void> = async (
+    event,
+  ) => {
     try {
       event.preventDefault();
       const api = new Api();
-      await api.post({
+
+      const { token }: { token: string } = await api.post({
         url: '/api/login',
         data: formData,
         clientErrorMessage: 'Not found! :(',
       });
+
+      setCookie('token', token);
 
       setFormData({
         login: '',
@@ -52,6 +63,7 @@ export default function Register(): JSX.Element {
 
       await Router.push('/');
     } catch (e) {
+      removeCookie('token');
       const error = e as GeneralError;
       window.alert(error.message || 'Unexpected error');
     }
