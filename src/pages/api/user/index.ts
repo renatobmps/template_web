@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { z } from 'zod';
 import CreateUser from '@serverUseCases/createUser';
 import endpointMethodHandler from '@helpers/endpointMethodHandler';
-import PostDTO from '@serverRepositories/implementations/userRepositoryIM';
+import PostDTO from '@serverRepositories/implementations/userRepositoryPrisma';
 
 const dto = new PostDTO();
 

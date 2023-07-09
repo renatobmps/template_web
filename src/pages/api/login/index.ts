@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { cookies } from 'next/headers';
 import { z } from 'zod';
 import MakeLogin from '@serverUseCases/makeLogin';
 import endpointMethodHandler from '@helpers/endpointMethodHandler';
-import PostDTO from '@serverRepositories/implementations/userRepositoryIM';
+import PostDTO from '@serverRepositories/implementations/userRepositoryPrisma';
 
 const dto = new PostDTO();
 
@@ -20,13 +21,16 @@ const methods: Record<
     });
     const { login, loginMethod, password } = bodyData.parse(req.body);
 
-    const newUser = await makeLogin.execute({
+    const { token } = await makeLogin.execute({
       login,
       password,
       loginMethod,
     });
 
-    res.status(201).json({ newUser });
+    const pageCookies = cookies();
+    console.log({ token, pageCookies });
+
+    res.status(201).json({ token });
   },
 };
 

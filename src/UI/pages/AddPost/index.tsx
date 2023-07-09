@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { type CSSProperties } from 'react';
 import type GeneralError from '@errors/GeneralError';
+import Api from '@helpers/api';
 
 const formStyle: CSSProperties = {
   display: 'flex',
@@ -28,29 +29,12 @@ export default function AddPost(): JSX.Element {
     const { currentTarget } = event;
     currentTarget.querySelector('button')?.setAttribute('disabled', 'true');
     try {
-      const response = await fetch('/api/post', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST',
-        },
-        body: JSON.stringify(data),
-        mode: 'cors',
-        credentials: 'include',
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        cache: 'no-cache',
-        keepalive: true,
-        window: null,
+      const api = new Api();
+      await api.post({
+        url: '/api/post',
+        data,
+        clientErrorMessage: 'Problem with server! :(',
       });
-
-      if (response.status !== 201) {
-        const stringifyText = await response.text();
-        const errorMessage = JSON.parse(stringifyText).message;
-        throw new Error(errorMessage);
-      }
 
       window.alert('Created :)');
     } catch (e) {
@@ -64,6 +48,9 @@ export default function AddPost(): JSX.Element {
 
   return (
     <div>
+      <Link href="/user/login">Try login</Link>
+      <br />
+      <Link href="/user/register">Create register</Link>
       <h1>Hello World</h1>
       <Link href="/post">Ver postagens</Link>
       <article>
