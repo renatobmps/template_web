@@ -36,7 +36,7 @@ export default function AddPost(): JSX.Element {
   const [cookies] = useCookies(['token']);
 
   useEffect(() => {
-    if (!cookies.token) void Router.push('/');
+    if (!cookies.token) window.location.href = '/';
   }, [cookies]);
 
   const onSubmit = async (
