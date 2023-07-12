@@ -1,14 +1,15 @@
 {
   "name": "template",
-  "version": "0.5.8.1",
+  "version": "0.0.0",
   "scripts": {
-    "build": "prisma generate && rm -fr .next ; next build",
+    "build": "prisma generate && prisma:migrate:prod && rm -fr .next ; next build",
     "dev": "DEBUG=* rm -fr .next ; next dev",
     "export": "npm run build && next export",
     "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.ts\"",
     "lint": "next lint",
     "prepare": "husky install",
-    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:dev": "prisma migrate dev",
+    "prisma:migrate:prod": "prisma migrate deploy",
     "prisma:studio": "prisma studio",
     "start": "npm run build && NODE_ENV=production next start -p 80",
     "test": "vitest",
