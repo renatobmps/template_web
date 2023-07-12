@@ -6,34 +6,25 @@ With the help of this template, you can create a full-stack project that uses Ne
 
 ## Using this template
 
-The following command can be used to use this template::
+The following command can be used to create a new project based on this:
 
 ```
 npx degit renatobmps/template_web new_project_name
 ```
 
-You can read more about some of the technologies used in this project below:
+To change directory and get start, you can use:
 
-### Node
-The Node.js version used to create this project was 18.15.0.
+```
+cd new_project_name
+```
 
-### Next.js
-Next.js 13.4.3 is being used in this project. With Next.js, you can run the project locally with ```npm run dev``` command.
+Well, the node version used was *lts/hydrogen (v18.16.1)*, so I recommend using the same version. With [NVM](https://github.com/nvm-sh/nvm), you can do it with:
 
-### EsLint and prettier
-Eslint is a tool to enforce coding pattern and prettier is a tool to enforce code style. This tools will create a code pattern.
+```
+nvm install
+```
 
-### Husky
-Husky will improve the git commits. This tool will allows a commit only if the test and lint scripts don't returns erros. Basically, you will try to commit something and it will run ```npm run lint``` and ```npm run test``` and if it doesn't return erros, your code will be committed.
-
-## About frontend
-
-This frontend is using Next.js, it's mean that you can use functions as getStaticProps, for example to made a server side rendering app.
-
-## About backend
-
-The API is made using SOLID principles. SOLID helps you to have a scalable API because it uses Liskov substitution principle and Dependency Injection principle and this allows you to create uncoupled entities. This principles helps with automated testing too, because is possible to use a In Memory database without problem, for example.
-
-## About general
-
-All application is covered by tests using vitest library
+Now, you can install all dependencies using a regular ```npm i``` or:
+```
+npm install
+```
