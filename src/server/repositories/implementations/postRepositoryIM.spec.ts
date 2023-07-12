@@ -2,10 +2,15 @@ import { describe, expect, it, vi } from 'vitest';
 import PostRepositoryIM from './postRepositoryIM';
 
 describe('PostRepositoryIM', () => {
-  const repository = new PostRepositoryIM();
-
   it('should be defined', () => {
     expect(PostRepositoryIM).toBeDefined();
+  });
+
+  const repository = new PostRepositoryIM();
+
+  it('should be instantiated', () => {
+    expect(repository).toBeDefined();
+    expect(repository).instanceOf(PostRepositoryIM);
   });
 
   it('should to return a void list of posts', async () => {

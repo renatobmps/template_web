@@ -22,7 +22,7 @@ module.exports = {
     'standard-with-typescript',
   ],
   overrides: [],
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', '**/{spec,test}/*.{js,jsx,ts,tsx}', '**/__tests__/*'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {

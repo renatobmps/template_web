@@ -1,9 +1,9 @@
 import { type GetStaticPaths, type GetStaticProps } from 'next';
-import PostDTO from '@serverProviders/implementations/postRepositoryPrisma';
 import ListAllPosts from '@serverUseCases/listAllPosts';
 import ListOnePost from '@serverUseCases/listOnePost';
 import NotFound from '@UIPages/NotFound';
 import Post, { type PostPageProps } from '@UIPages/Post';
+import PostDTO from '@serverRepositories/implementations/postRepositoryPrisma';
 
 interface PageProps extends PostPageProps {}
 
@@ -14,12 +14,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = posts.map((post) => `/post/${post.id}`);
   const fallback = 'blocking';
-
-  // eslint-disable-next-line no-console
-  console.log({
-    paths,
-    fallback,
-  });
 
   return {
     paths,

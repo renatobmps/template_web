@@ -2,7 +2,7 @@
 
 ## Problem Description
 
-Criar app fullstack onde uma **pessoa** pode criar um **cadastro**, fazer **login** e fazer **postagens** como um blog
+Create a fullstack app, some like a blog page, where is possible to public access to read **all posts** and people can **create an account**, **login** and **create another posts**.
 
 ## List of versions
 
@@ -53,14 +53,18 @@ Tag > branch > commit
     - [X] 0.4.3 - Add typescript aliases
     - [X] 0.4.4 - Add vitest and start testing all files
   - [ ] 0.6.0 - Login
-    - [ ] 0.5.1 - Create User entity
-    - [ ] 0.5.2 - Create use case (create and login)
-    - [ ] 0.5.2 - Create repository to User
-    - [ ] 0.5.3 - Create in memory repository and prisma repository
-    - [ ] 0.5.4 - Create API integration
-    - [ ] 0.5.5 - Use cookies to create login session
-    - [ ] 0.5.6 - Create login and register pages and redirects (if logging, redirect to posts, else redirect to login)
-    - [ ] 0.5.7 - Remove username field to post create
+    - [X] 0.5.1 - Create User entity
+    - [X] 0.5.2 - Create use case (create and login)
+    - [X] 0.5.3 - Create repository contract to User
+    - [X] 0.5.4 - Create in memory repository and prisma repository
+    - [X] 0.5.5 - Create prisma user repository
+    - [X] 0.5.6 - Create API integration
+    - [X] 0.5.7 - Use cookies to create login session
+    - [X] 0.5.8 - Create login and register pages and redirects (if logging, redirect to posts, else redirect to login)
+    - [ ] 0.5.9 - Remove username field to post create
+      - [X] 0.5.8.1 - Fix front-end pages flow
+      - [ ] 0.5.8.2 - Create a hook to login verification
+      - [ ] 0.5.8.3 - Fix relation User and Post
   - [ ] 0.7.0 - Improve frontend
     - [ ] 0.6.1 - Fix page flow and create pages
         - **/** list of posts

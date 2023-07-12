@@ -12,7 +12,6 @@ describe('AddPost', () => {
   });
 
   it('renders the component', () => {
-    expect(screen.getByText('Hello World')).toBeInTheDocument();
     expect(screen.getByText('Ver postagens')).toBeInTheDocument();
     expect(screen.getByText('New post')).toBeInTheDocument();
     expect(screen.getByLabelText('Title')).toBeInTheDocument();

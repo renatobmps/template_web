@@ -11,14 +11,17 @@ export default defineConfig({
     exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
     include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     globals: true,
-    setupFiles: ['./setupTests.ts'],
+    setupFiles: ['./setupTests.ts', 'dotenv/config'],
   },
   resolve: {
     alias: {
       '@errors': path.resolve(__dirname, './src/errors'),
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@serverEntities': path.resolve(__dirname, './src/server/entities'),
-      '@serverProviders': path.resolve(__dirname, './src/server/providers'),
+      '@serverRepositories': path.resolve(
+        __dirname,
+        './src/server/repositories',
+      ),
       '@serverUseCases': path.resolve(__dirname, './src/server/services'),
       '@UIPages': path.resolve(__dirname, './src/UI/pages'),
       '@UIShared': path.resolve(__dirname, './src/UI/shared'),

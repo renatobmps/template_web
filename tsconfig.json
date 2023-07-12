@@ -30,8 +30,8 @@
       "@serverEntities/*": [
         "./src/server/entities/*"
       ],
-      "@serverProviders/*": [
-        "./src/server/providers/*"
+      "@serverRepositories/*": [
+        "src/server/repositories/*"
       ],
       "@serverUseCases/*": [
         "./src/server/services/*"

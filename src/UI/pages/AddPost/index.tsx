@@ -1,6 +1,20 @@
 import Link from 'next/link';
-import { type CSSProperties } from 'react';
+import Router from 'next/router';
+import { type CSSProperties, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import type GeneralError from '@errors/GeneralError';
+import Api from '@helpers/api';
+
+interface ApiResponse {
+  newPost: {
+    props: {
+      body: string;
+      id: string;
+      title: string;
+      user: string;
+    };
+  };
+}
 
 const formStyle: CSSProperties = {
   display: 'flex',
@@ -19,6 +33,12 @@ const labelStyle: CSSProperties = {
 };
 
 export default function AddPost(): JSX.Element {
+  const [cookies] = useCookies(['token']);
+
+  useEffect(() => {
+    if (!cookies.token) window.location.href = '/';
+  }, [cookies]);
+
   const onSubmit = async (
     event: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
@@ -28,31 +48,16 @@ export default function AddPost(): JSX.Element {
     const { currentTarget } = event;
     currentTarget.querySelector('button')?.setAttribute('disabled', 'true');
     try {
-      const response = await fetch('/api/post', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST',
-        },
-        body: JSON.stringify(data),
-        mode: 'cors',
-        credentials: 'include',
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        cache: 'no-cache',
-        keepalive: true,
-        window: null,
+      const api = new Api();
+      const { newPost }: ApiResponse = await api.post({
+        url: '/api/post',
+        data,
+        clientErrorMessage: 'Problem with server! :(',
       });
 
-      if (response.status !== 201) {
-        const stringifyText = await response.text();
-        const errorMessage = JSON.parse(stringifyText).message;
-        throw new Error(errorMessage);
-      }
-
       window.alert('Created :)');
+
+      await Router.push(`/post/${newPost.props.id}`);
     } catch (e) {
       const error = e as GeneralError;
       window.alert(error.message || 'Unexpected error');
@@ -64,14 +69,13 @@ export default function AddPost(): JSX.Element {
 
   return (
     <div>
-      <h1>Hello World</h1>
-      <Link href="/post">Ver postagens</Link>
+      <Link href="/">Ver postagens</Link>
       <article>
         <h2>New post</h2>
         <form style={formStyle} onSubmit={onSubmit}>
           <label style={labelStyle} htmlFor="title">
             <span>Title</span>
-            <input name="title" id="title" />
+            <input name="title" id="title" autoFocus />
           </label>
           <label style={labelStyle} htmlFor="body">
             <span>Post</span>

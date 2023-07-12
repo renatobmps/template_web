@@ -9,5 +9,6 @@
     "renatobmps",
     "sqlite",
     "trivago"
-  ]
+  ],
+  "workbench.settings.openDefaultSettings": true
 }

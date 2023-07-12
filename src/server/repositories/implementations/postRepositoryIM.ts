@@ -1,5 +1,5 @@
-import type PostRepository from '@serverProviders/postRepository';
 import type Post from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 type PostWithLink = Omit<Post, 'body' | 'user' | 'link'> & {
   link: string;

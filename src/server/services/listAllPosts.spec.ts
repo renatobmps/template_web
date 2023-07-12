@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import InMemoryPostRepository from '@serverProviders/implementations/postRepositoryIM';
+import InMemoryPostRepository from '@serverRepositories/implementations/postRepositoryIM';
 import ListAllPosts from './listAllPosts';
 
 describe('ListAllPosts', () => {
@@ -27,6 +27,12 @@ describe('ListAllPosts', () => {
     };
     const postRepository = {
       readAll: vi.fn().mockResolvedValue([postTest]),
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      create: async () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      findDuplicatedTitle: async () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      readOne: async () => {},
     };
     const listAllPosts = new ListAllPosts(postRepository);
 

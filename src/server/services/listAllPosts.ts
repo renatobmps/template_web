@@ -1,4 +1,4 @@
-import type PostRepository from 'src/server/providers/postRepository';
+import type PostRepository from '@serverRepositories/postRepository';
 
 export type ListAllPostsResponse = Array<{
   id: string;

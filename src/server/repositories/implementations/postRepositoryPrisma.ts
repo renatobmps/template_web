@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
-import type PostRepository from '@serverProviders/postRepository';
 import { type Prisma, PrismaClient } from '@prisma/client';
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import Post, { PostProps } from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 export default class PostRepositoryPrisma implements PostRepository {
   prisma: PrismaClient<

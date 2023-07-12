@@ -1,5 +1,12 @@
 # Change log
 
+    - 0.5.8.1 - Improving user experience with correct page flow
+  - 0.5.6 - Created API integration to create an user and to make login
+  - 0.5.5 - Implemented userRepository with Prisma
+  - 0.5.4 - Created In Memory repository to user repository
+  - 0.5.3 - Create create repository interface
+  - 0.5.2 - CreateUser and MakeLogin use cases was created
+  - 0.5.1 - User entity was created
 - 0.5.0 - Improving infrastructure
   - 0.4.4 - Added vitest as testing library and added to all current files
   - 0.4.3 - Added typescript alias to easy import files

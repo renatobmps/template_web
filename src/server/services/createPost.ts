@@ -1,5 +1,5 @@
-import type PostRepository from 'src/server/providers/postRepository';
 import Post from '@serverEntities/post';
+import type PostRepository from '@serverRepositories/postRepository';
 
 interface CreatePostRequest {
   title: string;
@@ -21,7 +21,7 @@ export default class CreatePost {
     body,
     title,
     user,
-  }: Omit<CreatePostRequest, 'id'>): Promise<CreatePostResponse> {
+  }: CreatePostRequest): Promise<CreatePostResponse> {
     const post = new Post({
       body,
       title,
